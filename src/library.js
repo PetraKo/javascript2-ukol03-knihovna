@@ -60,6 +60,8 @@ export default class Library {
         }
       }
     }
+
+    renderHTML();
   }
 
 
@@ -74,8 +76,9 @@ export default class Library {
     this.currentBook = null;
 
     this.unreadBooks = +1;
-
     }
+
+    renderHTML();
   }
 
   listUnreadBooks() {
@@ -86,8 +89,8 @@ export default class Library {
 
   }
 
-
   generateListOfBooks ([]) {
     renderHTML();
   }
+
 }
