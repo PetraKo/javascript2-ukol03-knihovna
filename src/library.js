@@ -60,4 +60,28 @@ export default class Library {
     }
   }
 
+
+  finishCurrentBook() {
+
+    if (this.currentBook !== null) {
+
+    this.currentBook.read();
+
+    this.currentBook = this.lastBook;
+
+    this.currentBook = null;
+
+    this.unreadBooks = +1;
+
+    }
+  }
+
+  listUnreadBooks() {
+
+    let unreadBooks = this.bookList.filter(book => book.isRead === false);
+
+    console.log(unreadBooks);
+
+  }
+
 }
