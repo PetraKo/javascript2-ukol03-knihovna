@@ -27,7 +27,7 @@ export default class Book {
     this.isRead = true;
   }
 
-  renderHTML() {
+  renderHTML(currentBook) {
     let renderBookList = document.getElementById("booklist");
     let bookElement = document.createElement('div');
     bookElement.classList.add("book");
@@ -53,10 +53,10 @@ export default class Book {
     };
 
     // jedná-li se o aktuálně čtenou knihu, vygeneruj sem toto:
-   if(Library.currentBook === this) {
+   if(currentBook === this) {
 
     let badgeElement = document.createElement('div');
-    badgeElement.classList.add("book__badge");
+    badgeElement.classList.add("book__badge");+
     badgeElement.classList.add("book__badge--current");
     badgeElement.innerHTML = 'Právě čtu';
     bookElement.appendChild(badgeElement);

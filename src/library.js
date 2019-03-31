@@ -40,7 +40,7 @@ export default class Library {
 
   /* výpis všech knih v knihovně */
   listAllBooks() {
-    Library.generateListOfBooks(this.bookList);
+    this.generateListOfBooks(false);
   }
 
   /* začít číst další knihu */
@@ -62,7 +62,6 @@ export default class Library {
     this.listAllBooks();
   }
 
-
   finishCurrentBook() {
 
     if (this.currentBook !== null) {
@@ -76,17 +75,23 @@ export default class Library {
   }
 
   listUnreadBooks() {
-
-    let unreadBooks = this.bookList.filter(book => book.isRead === false);
-    this.generateListOfBooks(unreadBooks);
+    this.generateListOfBooks(true);
 
   }
 
-  static generateListOfBooks(bookList) {
+  generateListOfBooks(unreadOnly) {
+
+    let books;
+    if(unreadOnly) {
+      books = this.bookList.filter(book => book.isRead === false);
+    } else {
+      books = this.bookList;
+    }
+
     let renderBookList = document.getElementById("booklist");
     renderBookList.innerHTML = "";
-    bookList.map(book => {
-      book.renderHTML();
+    books.map(book => {
+      book.renderHTML(this.currentBook);
     });
   }
 
