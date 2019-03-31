@@ -59,7 +59,7 @@ export default class Library {
       }
     }
 
-    this.nextBook.renderHTML();
+    this.listAllBooks();
   }
 
 
@@ -72,7 +72,7 @@ export default class Library {
       this.unreadBooks = +1;
     }
 
-    this.currentBook.renderHTML();
+    this.listAllBooks();
   }
 
   listUnreadBooks() {
@@ -83,6 +83,8 @@ export default class Library {
   }
 
   static generateListOfBooks(bookList) {
+    let renderBookList = document.getElementById("booklist");
+    renderBookList.innerHTML = "";
     bookList.map(book => {
       book.renderHTML();
     });

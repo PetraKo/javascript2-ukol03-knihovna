@@ -25,13 +25,10 @@ export default class Book {
 
   read() {
     this.isRead = true;
-    console.log(`Super, přečetl jsi knihu ${this.title}.`);
   }
 
   renderHTML() {
-
     let renderBookList = document.getElementById("booklist");
-
     let bookElement = document.createElement('div');
     bookElement.classList.add("book");
 
