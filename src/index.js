@@ -29,3 +29,9 @@ knihovna.startReadingNextBook();
 
 /* vypíšeme všechny knihy v knihovně */
 knihovna.listAllBooks();
+
+document.getElementById("readNextBook").addEventListener("click", onStartReadingNextBook);
+
+function onStartReadingNextBook() {
+    knihovna.startReadingNextBook();
+  }
