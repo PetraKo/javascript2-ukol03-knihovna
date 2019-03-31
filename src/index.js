@@ -33,15 +33,12 @@ knihovna.listAllBooks();
 document.getElementById("readNextBook").addEventListener("click", onStartReadingNextBook);
 
 function onStartReadingNextBook() {
-    knihovna.finishCurrentBook();
     knihovna.startReadingNextBook();
   }
 
-/*
+
 document.getElementById("finishCurrentBook").addEventListener("click", onFinishCurrentBook);
 
 function onFinishCurrentBook() {
     knihovna.finishCurrentBook();
   }
-
-  */

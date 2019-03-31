@@ -33,27 +33,34 @@ export default class Book {
     bookElement.classList.add("book");
 
     bookElement.innerHTML = 
-    '<div class="book__image">' +
-      `<img src="images/${this.image}" alt="Obálka Název knihy"></img>` +
-    '</div>' +
-    '<div class="book__info">' +
-      `<h3 class="book__title">${this.title}</h3>` +
-      `<p class="book__meta">${this.author}, ${this.year}</p>` +
-    '</div>';
+    `<div class="book__image">
+      <img src="images/${this.image}" alt="Obálka Název knihy"></img>
+    </div>
+    <div class="book__info">
+      <h3 class="book__title">${this.title}</h3>
+      <p class="book__meta">${this.author}, ${this.year}</p>
+    </div>`;
 
     renderBookList.appendChild(bookElement);
   
     // je-li kniha přečtená, vygeneruj sem i toto
     if (this.isRead) {
-      bookElement.innerHTML = '<div class="book__badge book__badge--read">Přečteno</div>';
+      let badgeElement = document.createElement('div');
+      badgeElement.classList.add("book__badge");
+      badgeElement.classList.add("book__badge--read");
+      badgeElement.innerHTML = 'Přečteno';
+      bookElement.appendChild(badgeElement);
     };
 
     // jedná-li se o aktuálně čtenou knihu, vygeneruj sem toto:
-   /* if(this = this.currentBook) {
+   if(Library.currentBook === this) {
 
-      renderBookList.innerHTML = '<div class="book__badge book__badge--current">Právě čtu</div>';
-    } */
-
+    let badgeElement = document.createElement('div');
+    badgeElement.classList.add("book__badge");
+    badgeElement.classList.add("book__badge--current");
+    badgeElement.innerHTML = 'Právě čtu';
+    bookElement.appendChild(badgeElement);
+    } 
   }
 
 }
